@@ -6,7 +6,7 @@ El codigo está escrito en pascal/delphi en el IDE RADStudio, para poder compila
 
 Tambien puedes encontrar un archivo `Informe MAT205 (borrador).docx` que es un documento word con la explicación del proyecto
 
-[Tambien puedes ver este video ](https://www.youtube.com/watch?v=YNgYQ7pDr8Y&t=450s) que es la defensa/exposición/explicación del método numérico y el proyecto
+[Tambien puedes ver este video ](https://www.youtube.com/watch?v=YNgYQ7pDr8Y&t=228s) que es la defensa/exposición/explicación del método numérico y el proyecto
 ## Acerca de:
 Desarrollador: Daniel Cueto Torrico
 FICCT-UAGRM
