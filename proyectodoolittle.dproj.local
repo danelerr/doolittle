@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/02/12 02:49:41.000.740,=C:\Users\danie\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/02/16 19:34:08.000.562,=C:\Users\danie\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/03/05 10:16:49.000.618,=C:\Users\danie\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/03/24 23:05:06.000.604,=C:\Users\danie\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/01/04 14:28:44.000.171,=C:\Users\danie\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/01/04 16:13:36.000.572,D:\UAGRM\Metodos Numericos\Proyecto Doolittle\interfaz.pas=C:\Users\danie\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/01/04 16:13:36.000.572,D:\UAGRM\Metodos Numericos\Proyecto Doolittle\interfaz.dfm=C:\Users\danie\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/01/04 16:13:48.000.022,D:\UAGRM\Metodos Numericos\Proyecto Doolittle\proyectodoolittle.dproj=C:\Users\danie\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2022/01/04 16:16:23.000.222,=D:\UAGRM\Metodos Numericos\Proyecto Doolittle\Unit1.pas</Transaction>
+    <Transaction>2022/01/04 16:16:33.000.046,D:\UAGRM\Metodos Numericos\Proyecto Doolittle\matriz.pas=D:\UAGRM\Metodos Numericos\Proyecto Doolittle\Unit1.pas</Transaction>
+    <Transaction>2022/01/04 16:17:04.000.654,D:\UAGRM\Metodos Numericos\Proyecto Doolittle\umatriz.pas=D:\UAGRM\Metodos Numericos\Proyecto Doolittle\matriz.pas</Transaction>
+  </Transactions>
+</BorlandProject>

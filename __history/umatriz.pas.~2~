@@ -1,0 +1,153 @@
+unit umatriz;
+
+interface
+
+  uses sysutils;
+
+  type
+   matriz = class
+   private
+      M: array of array of real;
+      NroF, NroC: word;
+   public
+      constructor Create(f, c: word);
+      property NroFilas: word read NroF write NroF;
+      property NroColumnas: word read NroC write NroC;
+      function ToString: string; override;
+      function get(f, c: word): real;
+      procedure put(f, c: word; e: real);
+      class function Multiplicar(a, b: matriz): matriz; static;
+      class procedure iniciarL(l: matriz); static;
+      class procedure iniciarU(u: matriz); static;
+      class procedure iniciarLU(l, u: matriz); static;
+      class procedure doolittleLU(a, l, u: matriz); static;
+end;
+
+implementation
+
+
+constructor matriz.Create(f, c: Word);
+var i, j: word;
+begin
+  setLength(M, f, c);
+  for i := 0 to f-1 do begin
+    for j := 0 to c-1 do begin
+      self.M[i, j] := 0;
+    end;
+  end;
+  NroF := f;
+  NroC := c;
+end;
+
+class function matriz.Multiplicar(a, b: matriz): matriz;
+var
+  r: matriz;
+  i, j, k: word;
+  aux: real;
+begin
+  if a.NroColumnas <> b.NroFilas then exit(nil);
+  r := matriz.Create(a.NroFilas, b.NroColumnas);
+  for i := 0 to r.NroFilas-1 do begin
+    for j := 0 to r.NroColumnas-1 do begin
+      aux := 0;
+      for k := 0 to a.NroColumnas-1 do begin
+        aux := aux + a.M[i, k]*b.M[k, j];
+      end;
+      r.M[i, j] := aux;
+    end;
+  end;
+  exit(r);
+end;
+
+
+function matriz.ToString;
+var
+  s: string;
+  i, j: word;
+begin
+  inherited;
+  for i := 0 to NroF-1 do begin
+    for j := 0 to NroC-1 do begin
+      s := s + FloatToStr(self.M[i, j]);
+      if j+1 <= NroC-1 then s := s + ', ';
+    end;
+    s := s + #10;
+  end;
+  exit(s);
+end;
+
+function matriz.get(f, c: word): real;
+begin
+  exit(M[f-1, c-1]);
+end;
+
+procedure matriz.put(f, c: word; e: real);
+begin
+  M[f-1, c-1] := e;
+end;
+
+
+class procedure matriz.iniciarL(l: matriz);
+var i, j: word;
+begin
+   for i := 1 to l.NroF do begin
+    l.put(i, i, 1);
+    for j := i+1 to l.NroC do begin
+      l.put(i, j, 0);
+    end;
+   end;
+end;
+
+
+class procedure matriz.iniciarU(u: matriz);
+var i, j: word;
+begin
+   for i := 1 to u.NroF do begin
+    for j := i+1 to u.NroC do begin
+      u.put(j, i, 0);
+    end;
+   end;
+end;
+
+class procedure matriz.iniciarLU(l, u: matriz);
+var i, j: word;
+begin
+   for i := 1 to u.NroF do begin
+    l.put(i, i, 1);
+    for j := i+1 to u.NroC do begin
+      l.put(i, j, 0);
+      u.put(j, i, 0);
+    end;
+   end;
+end;
+
+class procedure matriz.doolittleLU(a, l, u: matriz);
+var
+  i, j, k, n, p: word;
+  suma1, suma2, suma3: real;
+begin
+  n := a.NroFilas;
+	for k := 1 to n do begin
+		suma1 := 0;
+		for p := 1 to k-1 do begin
+			suma1 := suma1 + l.get(k,p) * u.get(p,k);
+		end;
+		u.put(k,k, a.get(k,k) - suma1);
+		for i := k+1 to n do begin
+			suma2 := 0;
+			for p:=1 to (k-1) do begin
+				suma2 := suma2 + l.get(i,p) * u.get(p,k);
+			end;
+			l.put(i,k, (a.get(i,k)-suma2)/u.get(k,k));
+		end;
+		for j := k+1 to n do begin
+			suma3 := 0;
+			for p:=1 to k-1 do begin
+				suma3 :=suma3 + l.get(k,p) * u.get(p,j);
+			end;
+			u.put(k,j, (a.get(k,j)-suma3)/l.get(k,k));
+		end;
+	end;
+end;
+
+end.
